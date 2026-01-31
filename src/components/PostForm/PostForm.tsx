@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import type { ChangeEvent, FormEvent } from "react";
+import type { ChangeEvent, SubmitEventHandler } from "react";
 import styles from "./PostForm.module.css";
 import commonStyles from "../../App.module.css";
 import {createPost} from "../../store/slices/postsSlice";
@@ -11,7 +11,7 @@ const PostForm: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
 
-    const addNewPost = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+    const addNewPost: SubmitEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
         const text = content.trim();
         if (!text) {

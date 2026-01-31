@@ -1,6 +1,6 @@
 import styles from "./LoginPage.module.css";
 import commonStyles from "../../App.module.css";
-import type { ChangeEvent, FormEvent } from "react";
+import type { ChangeEvent, SubmitEventHandler } from "react";
 import { useEffect, useState } from "react";
 import {useNavigate} from "react-router-dom";
 import {login, register, clearError} from '../../store/slices/authSlice';
@@ -56,7 +56,7 @@ const LoginPage: React.FC = () => {
 
 
     //Обработчик отправки формы. В зависимости от текущего режима выполняет вход или регистрацию.
-    const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+    const handleSubmit: SubmitEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
 
         // Устанавливаем локальное состояние загрузки.
