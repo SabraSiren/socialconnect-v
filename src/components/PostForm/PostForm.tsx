@@ -20,19 +20,21 @@ const PostForm: React.FC = () => {
 
     const { uploadFile, getFileUrl } = FileService();
 
+    const isEmpty = !content.trim() && !fileId;
+
     const addNewPost: SubmitEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
         const text = content.trim();
-        if (!text) {
-            setError("Input post text");
+        if (!text && !fileId) {
+            setError("Add text or image");
             return;
         }
         setLoading(true);
         setError(null);
         try {
             await dispatch(createPost({
-                content: text,
-                photo_id: fileId ?? undefined,
+                ...(text && { content: text }),
+                ...(fileId && { photo_id: fileId }),
             })).unwrap();
             setContent("");
             setFileUrl(null);
@@ -116,7 +118,7 @@ const PostForm: React.FC = () => {
                     <button
                         type="submit"
                         className={styles.postButton}
-                        disabled={loading || !content.trim()}
+                        disabled={loading || isEmpty}
                     >
                         {loading ? "Posting..." : "Post"}
                     </button>
