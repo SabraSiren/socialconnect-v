@@ -28,9 +28,50 @@
     color: var(--font-color-placeholder);
 }
 
+.filePreview {
+    margin-bottom: 0.75rem;
+}
+
+.filePreview img {
+    max-width: 120px;
+    max-height: 80px;
+    object-fit: cover;
+    border-radius: 0.375rem;
+    border: 1px solid var(--border);
+}
+
+.hiddenInput {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
 .postActions {
     display: flex;
+    align-items: center;
     justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.attachButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 0.375rem;
+    color: var(--font-color-dark);
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.attachButton:hover {
+    border-color: var(--primary-light);
+    color: var(--primary);
 }
 
 .postButton {

@@ -1,25 +1,29 @@
 import React from "react";
-import {Link} from "react-router-dom";
-import {Heart, MessageCircle, Trash2} from "lucide-react"
-import styles from "./Post.module.css"
-import commonStyles from "../../App.module.css"
-import {deletePost, likePost} from "../../store/slices/postsSlice";
+import { Link } from "react-router-dom";
+import { Heart, MessageCircle, Trash2 } from "lucide-react";
+import styles from "./Post.module.css";
+import commonStyles from "../../App.module.css";
+import { deletePost, likePost } from "../../store/slices/postsSlice";
 import type { Post as PostType } from "../../types";
 import { useAppDispatch } from "../../store/hooks";
+import FileService from "../../API/FileService";
+
 
 interface PostProps {
     post: PostType;
 }
 
-const Post: React.FC<PostProps> = ({post}) => {
+const Post: React.FC<PostProps> = ({ post }) => {
     const dispatch = useAppDispatch();
+    const { getFileUrl } = FileService();
 
     const {
         id,
         content,
         likes,
         timestamp,
-        liked_by_user
+        liked_by_user,
+        photo_id,
     } = post;
 
     const handleDelete = (e: React.MouseEvent<HTMLButtonElement>): void => {
@@ -37,6 +41,7 @@ const Post: React.FC<PostProps> = ({post}) => {
         const d = new Date(timestamp);
         return isNaN(d.getTime()) ? String(timestamp) : d.toLocaleString();
     })();
+
 
     return (
         <div className={styles.postCard}>
@@ -56,6 +61,11 @@ const Post: React.FC<PostProps> = ({post}) => {
             </div>
             <div className={commonStyles.cardContentCompact}>
                 <p className={styles.postContent}>{content}</p>
+                {photo_id && (
+                    <div className={styles.postImage}>
+                        <img src={getFileUrl(photo_id)} alt="Post attachment" />
+                    </div>
+                )}
                 <div className={styles.postActions}>
                     <button
                         onClick={handleLike}

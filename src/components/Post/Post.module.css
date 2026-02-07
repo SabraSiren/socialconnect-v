@@ -50,6 +50,19 @@
     color: var(--font-color-dark);
 }
 
+.postImage {
+    margin-bottom: 1rem;
+}
+
+.postImage img {
+    display: block;
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 0.375rem;
+    border: 1px solid var(--border);
+}
+
 .postActions {
     display: flex;
     gap: 1rem;
