@@ -4,12 +4,14 @@ export interface Post {
     likes: number;
     timestamp: string;
     liked_by_user: boolean;
+    photo_id?: string | null;
 }
 
 export interface User {
     id: number;
     username: string;
     full_name?: string;
+    avatar_id?: string | null;
 }
 
 export interface AuthState {
@@ -45,4 +47,5 @@ export interface RegisterCredentials {
 // Интерфейсы для работы с постами
 export interface CreatePostPayload {
     content: string;
+    photo_id?: string | null;
 }
