@@ -46,6 +46,6 @@ export interface RegisterCredentials {
 
 // Интерфейсы для работы с постами
 export interface CreatePostPayload {
-    content: string;
+    content?: string | null;
     photo_id?: string | null;
 }
