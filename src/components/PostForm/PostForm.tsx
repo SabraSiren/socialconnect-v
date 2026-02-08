@@ -91,7 +91,13 @@ const PostForm: React.FC = () => {
                 </div>
                 {fileUrl && (
                     <div className={styles.postForm__filePreview}>
-                        <img src={fileUrl} alt="Uploaded" />
+                        <img
+                            src={fileUrl}
+                            alt="Uploaded"
+                            width={120}
+                            height={80}
+                            decoding="async"
+                        />
                     </div>
                 )}
                 {fileError && (

@@ -1,5 +1,10 @@
-/* Блок posts */
+
 .posts {
+    /* Резерв места под ленту/лоадер — уменьшает CLS при подгрузке постов */
+    &__root {
+        min-height: 280px;
+    }
+
     &__feed {
         display: flex;
         flex-direction: column;

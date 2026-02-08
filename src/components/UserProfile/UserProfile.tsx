@@ -81,7 +81,14 @@ const UserProfile: React.FC = () => {
                     >
                         <div className={styles.userProfile__avatar}>
                             {avatarUrl ? (
-                                <img src={avatarUrl} alt="" className={styles.userProfile__avatarImage} />
+                                <img
+                                    src={avatarUrl}
+                                    alt=""
+                                    className={styles.userProfile__avatarImage}
+                                    width={80}
+                                    height={80}
+                                    decoding="async"
+                                />
                             ) : (
                                 <div className={styles.userProfile__emptyAvatar}>
                                     <User className={styles.userProfile__userIcon} />

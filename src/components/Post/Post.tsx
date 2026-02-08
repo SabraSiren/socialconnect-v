@@ -63,7 +63,14 @@ const Post: React.FC<PostProps> = ({ post }) => {
                 <p className={styles.post__content}>{content}</p>
                 {photo_id && (
                     <div className={styles.post__image}>
-                        <img src={getFileUrl(photo_id)} alt="Post attachment" />
+                        <img
+                            src={getFileUrl(photo_id)}
+                            alt="Post attachment"
+                            width={600}
+                            height={400}
+                            loading="lazy"
+                            decoding="async"
+                        />
                     </div>
                 )}
                 <div className={styles.post__actions}>

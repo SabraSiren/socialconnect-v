@@ -21,7 +21,7 @@ const Posts: React.FC = () => {
     };
 
     return (
-        <div>
+        <div className={styles.posts__root}>
             {error && (
                 <div className={styles.posts__errorContainer}>
                     <p className={styles.posts__errorMessage}>{error}</p>
