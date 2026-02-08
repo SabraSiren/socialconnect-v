@@ -1,4 +1,5 @@
-.loaderContainer {
+
+.loader__container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,32 +8,32 @@
     gap: 1rem;
 }
 
-.spinner {
+.loader__spinner {
     border: 3px solid var(--border);
     border-top: 3px solid var(--primary);
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
 
-.spinner.small {
+.loader__spinner--small {
     width: 20px;
     height: 20px;
     border-width: 2px;
 }
 
-.spinner.medium {
+.loader__spinner--medium {
     width: 40px;
     height: 40px;
     border-width: 3px;
 }
 
-.spinner.large {
+.loader__spinner--large {
     width: 60px;
     height: 60px;
     border-width: 4px;
 }
 
-.loaderText {
+.loader__text {
     color: var(--font-color-ligth);
     font-size: 0.875rem;
     font-weight: 500;

@@ -5,25 +5,25 @@ import styles from "./Comments.module.css";
 
 const Comments: React.FC = () => {
     return (
-        <div className={styles.container}>
-            <div className={styles.header}>
-                <div className={styles.headerTop}>
-                    <Link to="/profile" className={styles.backButton}>
-                        <ArrowLeft className={styles.backIcon}/>
+        <div className={styles.comments__container}>
+            <div className={styles.comments__header}>
+                <div className={styles.comments__headerTop}>
+                    <Link to="/profile" className={styles.comments__backButton}>
+                        <ArrowLeft className={styles.comments__backIcon}/>
                         Back to profile
                     </Link>
                 </div>
-                <div className={styles.headerContent}>
-                    <div className={styles.titleContainer}>
-                        <MessageCircle className={styles.titleIcon}/>
-                        <h1 className={styles.title}>Comments: 0</h1>
+                <div className={styles.comments__headerContent}>
+                    <div className={styles.comments__titleContainer}>
+                        <MessageCircle className={styles.comments__titleIcon}/>
+                        <h1 className={styles.comments__title}>Comments: 0</h1>
                     </div>
                 </div>
             </div>
-            <div className={styles.emptyState}>
-                <div className={styles.emptyContent}>
-                    <h3 className={styles.emptyTitle}>No comments yet</h3>
-                    <p className={styles.emptyText}>
+            <div className={styles.comments__emptyState}>
+                <div className={styles.comments__emptyContent}>
+                    <h3 className={styles.comments__emptyTitle}>No comments yet</h3>
+                    <p className={styles.comments__emptyText}>
                         This post doesn't have any comments yet. Be the first to comment!
                     </p>
                 </div>

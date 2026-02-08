@@ -1,11 +1,11 @@
-.userInfo {
+.userProfile__userInfo {
     display: flex;
     align-items: flex-start;
     gap: 1rem;
     position: relative;
 }
 
-.hiddenInput {
+.userProfile__hiddenInput {
     position: absolute;
     width: 0;
     height: 0;
@@ -14,7 +14,7 @@
     pointer-events: none;
 }
 
-.avatarButton {
+.userProfile__avatarButton {
     padding: 0;
     border: none;
     background: none;
@@ -23,11 +23,11 @@
     display: block;
 }
 
-.avatarButton:disabled {
+.userProfile__avatarButton:disabled {
     cursor: wait;
 }
 
-.avatar {
+.userProfile__avatar {
     width: 5rem;
     height: 5rem;
     border-radius: 50%;
@@ -40,17 +40,17 @@
     transition: box-shadow 0.2s ease;
 }
 
-.avatarButton:hover .avatar {
+.userProfile__avatarButton:hover .userProfile__avatar {
     box-shadow: 0 0 0 3px var(--primary-light);
 }
 
-.avatarImage {
+.userProfile__avatarImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.avatarOverlay {
+.userProfile__avatarOverlay {
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.4);
@@ -61,13 +61,13 @@
     font-size: 0.875rem;
 }
 
-.avatarError {
+.userProfile__avatarError {
     font-size: 0.875rem;
     color: var(--error);
     margin-bottom: 0.5rem;
 }
 
-.emptyAvatar {
+.userProfile__emptyAvatar {
     color: var(--avatar-empty-icon);
     background: var(--avatar-empty-bg);
     width: 100%;
@@ -77,16 +77,16 @@
     justify-content: center;
 }
 
-.userIcon {
+.userProfile__userIcon {
     width: 2rem;
     height: 2rem;
 }
 
-.userDetails {
+.userProfile__userDetails {
     flex: 1;
 }
 
-.userName {
+.userProfile__userName {
     font-size: 1.5rem;
     font-weight: 700;
     margin: 0 0 1rem 0;
@@ -94,30 +94,30 @@
 }
 
 
-.userStats {
+.userProfile__userStats {
     display: flex;
     gap: 2rem;
 }
 
-.stat {
+.userProfile__stat {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
-.statNumber {
+.userProfile__statNumber {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--font-color-dark);
 }
 
-.statLabel {
+.userProfile__statLabel {
     font-size: 0.875rem;
     color: var(--font-color-ligth);
 }
 
-.logoutButton {
+.userProfile__logoutButton {
     position: absolute;
     top: 0;
     right: 0;
@@ -134,24 +134,24 @@
     gap: 0.5rem;
 }
 
-.logoutButton:hover {
+.userProfile__logoutButton:hover {
     color: var(--destructive);
     border-color: var(--destructive);
 }
 
-.logoutIcon {
+.userProfile__logoutIcon {
     width: 1rem;
     height: 1rem;
 }
 
 @media (max-width: 768px) {
-    .userInfo {
+    .userProfile__userInfo {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
-    .logoutButton {
+    .userProfile__logoutButton {
         position: static;
         margin-top: 1rem;
         align-self: center;
@@ -159,23 +159,19 @@
         min-width: 120px;
     }
 
-    .userStats {
+    .userProfile__userStats {
         justify-content: center;
     }
 }
 
 @media (max-width: 480px) {
-    .cardContent {
-        padding: 1rem;
-    }
-
-    .logoutButton {
+    .userProfile__logoutButton {
         width: 100%;
         max-width: 200px;
         justify-content: center;
     }
 
-    .userStats {
+    .userProfile__userStats {
         gap: 1rem;
     }
 }

@@ -1,4 +1,4 @@
-.postCard {
+.post__card {
     margin-bottom: 1rem;
     transition: box-shadow 0.2s ease;
     background: var(--background);
@@ -7,16 +7,16 @@
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
-.postCard:hover {
+.post__card:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.postHeader {
+.post__header {
     padding: 1.5rem 1.5rem 0.5rem 1.5rem;
 }
 
 
-.postTime {
+.post__time {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,7 +24,7 @@
     color: var(--font-color-ligth);
 }
 
-.deleteButton {
+.post__deleteButton {
     background: transparent;
     border: none;
     padding: 0.25rem;
@@ -34,27 +34,27 @@
     transition: all 0.2s ease;
 }
 
-.deleteButton:hover {
+.post__deleteButton:hover {
     background: var(--background);
     color: var(--destructive);
 }
 
-.deleteIcon {
+.post__deleteIcon {
     width: 1rem;
     height: 1rem;
 }
 
-.postContent {
+.post__content {
     margin-bottom: 1rem;
     line-height: 1.6;
     color: var(--font-color-dark);
 }
 
-.postImage {
+.post__image {
     margin-bottom: 1rem;
 }
 
-.postImage img {
+.post__image img {
     display: block;
     max-width: 100%;
     max-height: 400px;
@@ -63,14 +63,14 @@
     border: 1px solid var(--border);
 }
 
-.postActions {
+.post__actions {
     display: flex;
     gap: 1rem;
     padding-top: 0.75rem;
     border-top: 1px solid var(--border);
 }
 
-.actionButton {
+.post__actionButton {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -84,25 +84,25 @@
     font-size: 0.875rem;
 }
 
-.actionButton:hover {
+.post__actionButton:hover {
     color: var(--font-color-dark);
     background: var(--background);
 }
 
-.actionButton.liked {
+.post__actionButton--liked {
     color: var(--primary-light);
 }
 
-.actionButton.liked:hover {
+.post__actionButton--liked:hover {
     color: var(--primary-light);
 }
 
-.actionIcon {
+.post__actionIcon {
     width: 1rem;
     height: 1rem;
     color: var(--primary);
 }
 
-.heartFilled {
+.post__heartFilled {
     fill: currentColor;
 }

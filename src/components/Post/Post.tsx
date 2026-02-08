@@ -44,40 +44,40 @@ const Post: React.FC<PostProps> = ({ post }) => {
 
 
     return (
-        <div className={styles.postCard}>
-            <div className={styles.postHeader}>
-                <div className={styles.postTime}>
+        <div className={styles.post__card}>
+            <div className={styles.post__header}>
+                <div className={styles.post__time}>
                     <span>{formattedTime}</span>
 
                     <button
-                        className={styles.deleteButton}
+                        className={styles.post__deleteButton}
                         onClick={handleDelete}
                         title="Delete post"
                         type="button"
                     >
-                        <Trash2 className={styles.deleteIcon}/>
+                        <Trash2 className={styles.post__deleteIcon}/>
                     </button>
                 </div>
             </div>
-            <div className={commonStyles.cardContentCompact}>
-                <p className={styles.postContent}>{content}</p>
+            <div className={commonStyles['app__cardContent--compact']}>
+                <p className={styles.post__content}>{content}</p>
                 {photo_id && (
-                    <div className={styles.postImage}>
+                    <div className={styles.post__image}>
                         <img src={getFileUrl(photo_id)} alt="Post attachment" />
                     </div>
                 )}
-                <div className={styles.postActions}>
+                <div className={styles.post__actions}>
                     <button
                         onClick={handleLike}
-                        className={`${styles.actionButton} ${liked_by_user ? styles.liked : ""}`}>
-                        <Heart className={`${styles.actionIcon} ${liked_by_user ? styles.heartFilled : ""}`}/>
+                        className={`${styles.post__actionButton} ${liked_by_user ? styles['post__actionButton--liked'] : ""}`}>
+                        <Heart className={`${styles.post__actionIcon} ${liked_by_user ? styles.post__heartFilled : ""}`}/>
                         <span>{likes}</span>
                     </button>
                     <Link
                         to={`/comments/${id}`}
-                        className={styles.actionButton}
+                        className={styles.post__actionButton}
                     >
-                        <MessageCircle className={styles.actionIcon}/>
+                        <MessageCircle className={styles.post__actionIcon}/>
                         <span>0</span>
                     </Link>
                 </div>

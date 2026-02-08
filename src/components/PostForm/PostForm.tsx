@@ -73,42 +73,42 @@ const PostForm: React.FC = () => {
     };
 
     return (
-        <div className={commonStyles.cardContent}>
+        <div className={commonStyles.app__cardContent}>
             <form onSubmit={addNewPost} name="postform">
                 {error && (
-                    <div className={styles.errorMessage}>
+                    <div className={styles.postForm__errorMessage}>
                         {error}
                     </div>
                 )}
-                <div className={styles.postInputContainer}>
+                <div className={styles.postForm__inputContainer}>
                     <textarea
                         placeholder="What's on your mind?"
                         value={content}
                         onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setContent(e.target.value)}
-                        className={styles.postInput}
+                        className={styles.postForm__input}
                         rows={3}
                     />
                 </div>
                 {fileUrl && (
-                    <div className={styles.filePreview}>
+                    <div className={styles.postForm__filePreview}>
                         <img src={fileUrl} alt="Uploaded" />
                     </div>
                 )}
                 {fileError && (
-                    <div className={styles.errorMessage}>{fileError}</div>
+                    <div className={styles.postForm__errorMessage}>{fileError}</div>
                 )}
-                <div className={styles.postActions}>
+                <div className={styles.postForm__actions}>
                     <input
                         ref={fileInputRef}
                         type="file"
                         accept="image/jpeg,image/png,image/jpg"
                         onChange={handleFileChange}
-                        className={styles.hiddenInput}
+                        className={styles.postForm__hiddenInput}
                         aria-hidden
                     />
                     <button
                         type="button"
-                        className={styles.attachButton}
+                        className={styles.postForm__attachButton}
                         onClick={handleAttachImageClick}
                         title="Add image"
                         aria-label="Add image"
@@ -117,7 +117,7 @@ const PostForm: React.FC = () => {
                     </button>
                     <button
                         type="submit"
-                        className={styles.postButton}
+                        className={styles.postForm__submitButton}
                         disabled={loading || isEmpty}
                     >
                         {loading ? "Posting..." : "Post"}

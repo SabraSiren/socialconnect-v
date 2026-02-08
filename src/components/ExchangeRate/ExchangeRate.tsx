@@ -14,32 +14,32 @@ const ExchangeRate: React.FC = () => {
     // Определяем статус и текст
     const getStatusInfo = (): {text: string, className: string} => {
         if (isConnected) {
-            return {text: 'CONNECTED', className: styles.statusConnected ?? ''};
+            return {text: 'CONNECTED', className: styles['exchangeRate__status--connected'] ?? ''};
         }
         if (error) {
-            return {text: 'ERROR', className: styles.statusError ?? ''};
+            return {text: 'ERROR', className: styles['exchangeRate__status--error'] ?? ''};
         }
-        return {text: 'DISCONNECTED', className: styles.statusDisconnected ?? ''};
+        return {text: 'DISCONNECTED', className: styles['exchangeRate__status--disconnected'] ?? ''};
     };
 
     const statusInfo = getStatusInfo();
 
     return (
-        <div className={styles.exchangeRateContainer}>
-            <div className={styles.exchangeRateCard}>
-                <div className={styles.exchangeRateHeader}>
-                    <div className={styles.exchangeRateTitleWrapper}>
-                        <DollarSign className={styles.exchangeRateIcon} size={16} />
-                        <h3 className={styles.exchangeRateTitle}>USD Rate</h3>
+        <div className={styles.exchangeRate__container}>
+            <div className={styles.exchangeRate__card}>
+                <div className={styles.exchangeRate__header}>
+                    <div className={styles.exchangeRate__titleWrapper}>
+                        <DollarSign className={styles.exchangeRate__icon} size={16} />
+                        <h3 className={styles.exchangeRate__title}>USD Rate</h3>
                     </div>
-                    <span className={`${styles.exchangeRateStatus} ${statusInfo.className}`}>
+                    <span className={`${styles.exchangeRate__status} ${statusInfo.className}`}>
             {statusInfo.text}
           </span>
                 </div>
 
-                <div className={styles.exchangeRateValue}>
+                <div className={styles.exchangeRate__value}>
                     {formatRate(rate)}
-                    <span className={styles.exchangeRateCurrency}>RUB</span>
+                    <span className={styles.exchangeRate__currency}>RUB</span>
                 </div>
             </div>
         </div>

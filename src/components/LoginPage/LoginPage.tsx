@@ -114,49 +114,49 @@ const LoginPage: React.FC = () => {
 
 
     return (
-        <div className={commonStyles.pageContainer}>
-            <div className={styles.authCard}>
-                <div className={styles.card}>
-                    <div className={styles.cardHeader}>
-                        <h1 className={styles.title}>Welcome to SocialConnect</h1>
-                        <p className={styles.description}>Connect with friends and share your moments</p>
+        <div className={commonStyles.app__pageContainer}>
+            <div className={styles.auth__cardWrapper}>
+                <div className={styles.auth__card}>
+                    <div className={styles.auth__cardHeader}>
+                        <h1 className={styles.auth__title}>Welcome to SocialConnect</h1>
+                        <p className={styles.auth__description}>Connect with friends and share your moments</p>
                     </div>
 
                     {/* Переключатель режимов (кнопки) */}
-                    <div className={styles.modeToggle}>
+                    <div className={styles.auth__modeToggle}>
                         <button
-                            className={`${styles.toggleButton} ${isLoginMode ? styles.active : ''}`}
+                            className={`${styles.auth__toggleButton} ${isLoginMode ? styles['auth__toggleButton--active'] : ''}`}
                             onClick={() => !isLoginMode && toggleMode()}
                         >
                             Login
                         </button>
                         <button
-                            className={`${styles.toggleButton} ${!isLoginMode ? styles.active : ''}`}
+                            className={`${styles.auth__toggleButton} ${!isLoginMode ? styles['auth__toggleButton--active'] : ''}`}
                             onClick={() => isLoginMode && toggleMode()}
                         >
                             Register
                         </button>
                     </div>
 
-                    <div className={commonStyles.cardContent}>
+                    <div className={commonStyles.app__cardContent}>
                         {/* Сообщение об успешной регистрации */}
                         {successMessage && (
-                            <div className={styles.successMessage}>
+                            <div className={styles.auth__successMessage}>
                                  {successMessage}
                             </div>
                         )}
                         {/* Блок отображения текстовой ошибки */}
                         {error && !successMessage && (
-                            <div className={styles.errorMessage}>
+                            <div className={styles.auth__errorMessage}>
                                 {error}
                             </div>
                         )}
 
-                        <form onSubmit={handleSubmit} className={styles.form}>
-                            <div className={styles.formFields}>
+                        <form onSubmit={handleSubmit} className={styles.auth__form}>
+                            <div className={styles.auth__formFields}>
                                 {/* Поле: логин */}
-                                <div className={styles.field}>
-                                    <label htmlFor="login" className={styles.label}>
+                                <div className={styles.auth__field}>
+                                    <label htmlFor="login" className={styles.auth__label}>
                                         Login
                                     </label>
                                     <input
@@ -169,13 +169,13 @@ const LoginPage: React.FC = () => {
                                         required
                                         onChange={handleInputChange}
                                         value={formData.username}
-                                        className={styles.input}
+                                        className={styles.auth__input}
                                     />
                                 </div>
 
                                 {/* Поле: пароль */}
-                                <div className={styles.field}>
-                                    <label htmlFor="password" className={styles.label}>
+                                <div className={styles.auth__field}>
+                                    <label htmlFor="password" className={styles.auth__label}>
                                         Password
                                     </label>
                                     <input
@@ -188,14 +188,14 @@ const LoginPage: React.FC = () => {
                                         required
                                         onChange={handleInputChange}
                                         value={formData.password}
-                                        className={styles.input}
+                                        className={styles.auth__input}
                                     />
                                 </div>
 
                                 {/* Поле: отображаемое имя (только для регистрации; видно на странице профиля) */}
                                 {!isLoginMode && (
-                                    <div className={styles.field}>
-                                        <label htmlFor="full_name" className={styles.label}>
+                                    <div className={styles.auth__field}>
+                                        <label htmlFor="full_name" className={styles.auth__label}>
                                             Full name
                                         </label>
                                         <input
@@ -208,7 +208,7 @@ const LoginPage: React.FC = () => {
                                             required={!isLoginMode}
                                             onChange={handleInputChange}
                                             value={formData.full_name}
-                                            className={styles.input}
+                                            className={styles.auth__input}
                                         />
                                     </div>
                                 )}
@@ -217,7 +217,7 @@ const LoginPage: React.FC = () => {
                                 <button
                                     type="submit"
                                     disabled={isButtonLoading}
-                                    className={styles.submitButton}>
+                                    className={styles.auth__submitButton}>
                                     {isButtonLoading ? 'Loading...' : (isLoginMode ? 'Sign in' : 'Sign up')}
                                 </button>
                             </div>

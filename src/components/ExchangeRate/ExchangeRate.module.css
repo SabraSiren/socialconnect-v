@@ -1,5 +1,5 @@
 
-.exchangeRateContainer {
+.exchangeRate__container {
     position: absolute;
     top: 2.25rem; /* Уменьшил отступ сверху */
     right: 0;
@@ -7,7 +7,7 @@
     justify-content: flex-end;
 }
 
-.exchangeRateCard {
+.exchangeRate__card {
     background: transparent;
     border: 1px solid var(--border);
     border-radius: 0.375rem;
@@ -20,11 +20,11 @@
     max-width: 180px; /* Уменьшил ширину */
 }
 
-.exchangeRateCard:hover {
+.exchangeRate__card:hover {
     border-color: var(--primary);
 }
 
-.exchangeRateHeader {
+.exchangeRate__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -32,21 +32,21 @@
     white-space: nowrap;
 }
 
-.exchangeRateTitleWrapper {
+.exchangeRate__titleWrapper {
     display: flex;
     align-items: center;
     gap: 0.375rem; /* Уменьшил gap */
     flex-shrink: 0;
 }
 
-.exchangeRateIcon {
+.exchangeRate__icon {
     width: 0.75rem; /* Уменьшил иконку */
     height: 0.75rem;
     color: var(--font-color-ligth);
     flex-shrink: 0;
 }
 
-.exchangeRateTitle {
+.exchangeRate__title {
     font-size: 0.75rem; /* Уменьшил шрифт */
     font-weight: 600;
     color: var(--font-color-ligth);
@@ -54,7 +54,7 @@
     flex-shrink: 0;
 }
 
-.exchangeRateStatus {
+.exchangeRate__status {
     font-size: 0.6rem; /* Уменьшил шрифт */
     font-weight: 600;
     padding: 0.1rem 0.25rem; /* Уменьшил padding */
@@ -65,25 +65,25 @@
     text-align: center;
 }
 
-.statusConnected {
+.exchangeRate__status--connected {
     background-color: rgba(34, 197, 94, 0.1);
     color: var(--primary-light);
     border: 1px solid var(--primary-dark);
 }
 
-.statusDisconnected {
+.exchangeRate__status--disconnected {
     background-color: var(--destructive);
     color: var(--font-color-ligth);
     border: 1px solid var(--border);
 }
 
-.statusError {
+.exchangeRate__status--error {
     background-color: var(--error);
     color: var(--font-color-dark);
     border: 1px solid var(--border);
 }
 
-.exchangeRateValue {
+.exchangeRate__value {
     font-size: 0.875rem; /* Уменьшил шрифт */
     font-weight: 500;
     color: var(--font-color-dark);
@@ -93,7 +93,7 @@
     line-height: 1; /* Убрал лишнюю высоту */
 }
 
-.exchangeRateCurrency {
+.exchangeRate__currency {
     font-size: 0.75rem; /* Уменьшил шрифт */
     color: var(--font-color-ligth);
     margin-left: 0.25rem;
@@ -102,14 +102,14 @@
 
 /* Адаптивность */
 @media (max-width: 768px) {
-    .exchangeRateContainer {
+    .exchangeRate__container {
         position: static;
         margin-top: 0.75rem; /* Уменьшил margin */
         justify-content: center;
         width: 100%;
     }
 
-    .exchangeRateCard {
+    .exchangeRate__card {
         width: auto;
         min-width: 160px;
         max-width: 180px;
@@ -117,41 +117,41 @@
 }
 
 @media (max-width: 480px) {
-    .exchangeRateContainer {
+    .exchangeRate__container {
         margin-top: 0.75rem;
     }
 
-    .exchangeRateCard {
+    .exchangeRate__card {
         padding: 0.375rem 0.5rem; /* Уменьшил padding */
         min-width: 140px; /* Уменьшил ширину */
         width: 100%;
         max-width: 160px; /* Уменьшил ширину */
     }
 
-    .exchangeRateValue {
+    .exchangeRate__value {
         font-size: 0.8125rem; /* Уменьшил шрифт */
     }
 
-    .exchangeRateHeader {
+    .exchangeRate__header {
         gap: 0.25rem; /* Уменьшил gap */
     }
 
-    .exchangeRateStatus {
+    .exchangeRate__status {
         font-size: 0.55rem; /* Уменьшил шрифт */
         min-width: 60px; /* Уменьшил ширину */
         padding: 0.05rem 0.125rem; /* Уменьшил padding */
     }
 
-    .exchangeRateTitle {
+    .exchangeRate__title {
         font-size: 0.6875rem; /* Уменьшил шрифт */
     }
 
-    .exchangeRateIcon {
+    .exchangeRate__icon {
         width: 0.625rem; /* Уменьшил иконку */
         height: 0.625rem;
     }
 
-    .exchangeRateCurrency {
+    .exchangeRate__currency {
         font-size: 0.6875rem; /* Уменьшил шрифт */
     }
 }

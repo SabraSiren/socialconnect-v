@@ -60,55 +60,55 @@ const UserProfile: React.FC = () => {
     const avatarUrl = user?.avatar_id ? getFileUrl(user.avatar_id) : null;
 
     return (
-        <div className={commonStyles.profileCard}>
-            <div className={commonStyles.cardContent}>
-                <div className={styles.userInfo}>
+        <div className={commonStyles.app__profileCard}>
+            <div className={commonStyles.app__cardContent}>
+                <div className={styles.userProfile__userInfo}>
                     <input
                         ref={fileInputRef}
                         type="file"
                         accept="image/jpeg,image/png,image/jpg"
                         onChange={handleAvatarChange}
-                        className={styles.hiddenInput}
+                        className={styles.userProfile__hiddenInput}
                         aria-hidden
                     />
                     <button
                         type="button"
-                        className={styles.avatarButton}
+                        className={styles.userProfile__avatarButton}
                         onClick={handleAvatarClick}
                         disabled={avatarLoading}
                         title="Change photo"
                         aria-label="Change photo"
                     >
-                        <div className={styles.avatar}>
+                        <div className={styles.userProfile__avatar}>
                             {avatarUrl ? (
-                                <img src={avatarUrl} alt="" className={styles.avatarImage} />
+                                <img src={avatarUrl} alt="" className={styles.userProfile__avatarImage} />
                             ) : (
-                                <div className={styles.emptyAvatar}>
-                                    <User className={styles.userIcon} />
+                                <div className={styles.userProfile__emptyAvatar}>
+                                    <User className={styles.userProfile__userIcon} />
                                 </div>
                             )}
-                            {avatarLoading && <div className={styles.avatarOverlay}>...</div>}
+                            {avatarLoading && <div className={styles.userProfile__avatarOverlay}>...</div>}
                         </div>
                     </button>
-                    <div className={styles.userDetails}>
-                        <h1 className={styles.userName}>{user?.full_name}</h1>
-                        {avatarError && <div className={styles.avatarError}>{avatarError}</div>}
-                        <div className={styles.userStats}>
-                            <div className={styles.stat}>
-                                <span className={styles.statNumber}>{postsCount}</span>
-                                <span className={styles.statLabel}>Posts</span>
+                    <div className={styles.userProfile__userDetails}>
+                        <h1 className={styles.userProfile__userName}>{user?.full_name}</h1>
+                        {avatarError && <div className={styles.userProfile__avatarError}>{avatarError}</div>}
+                        <div className={styles.userProfile__userStats}>
+                            <div className={styles.userProfile__stat}>
+                                <span className={styles.userProfile__statNumber}>{postsCount}</span>
+                                <span className={styles.userProfile__statLabel}>Posts</span>
                             </div>
-                            <div className={styles.stat}>
-                                <span className={styles.statNumber}>1.2k</span>
-                                <span className={styles.statLabel}>Followers</span>
+                            <div className={styles.userProfile__stat}>
+                                <span className={styles.userProfile__statNumber}>1.2k</span>
+                                <span className={styles.userProfile__statLabel}>Followers</span>
                             </div>
-                            <div className={styles.stat}>
-                                <span className={styles.statNumber}>892</span>
-                                <span className={styles.statLabel}>Following</span>
+                            <div className={styles.userProfile__stat}>
+                                <span className={styles.userProfile__statNumber}>892</span>
+                                <span className={styles.userProfile__statLabel}>Following</span>
                             </div>
                         </div>
-                        <button className={styles.logoutButton} onClick={handleLogout}>
-                            <LogOut className={styles.logoutIcon} />
+                        <button className={styles.userProfile__logoutButton} onClick={handleLogout}>
+                            <LogOut className={styles.userProfile__logoutIcon} />
                             Logout
                         </button>
                         <ExchangeRate />

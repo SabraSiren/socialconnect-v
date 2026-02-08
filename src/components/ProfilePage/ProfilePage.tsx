@@ -4,14 +4,16 @@ import UserProfile from "../UserProfile/UserProfile";
 import PostForm from "../PostForm/PostForm";
 import Posts from "../Posts/Posts";
 
+
 const ProfilePage: React.FC = () => {
 
     return (
-        <div className={styles.container}>
-            <div className={styles.mainContent}>
-                <div className={styles.profileCard}>
+        
+        <div className={styles.app__container}>
+            <div className={styles.app__mainContent}>
+                <div className={styles.app__profileCard}>
                     <UserProfile/>
-                    <div className={styles.divider}></div>
+                    <div className={styles.app__divider}></div>
                     <PostForm/>
                 </div>
                 <Posts/>
