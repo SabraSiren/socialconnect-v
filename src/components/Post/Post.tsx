@@ -60,14 +60,13 @@ const Post: React.FC<PostProps> = ({ post }) => {
                 </div>
             </div>
             <div className={commonStyles['app__cardContent--compact']}>
+                <div className={styles.post__divider} aria-hidden="true" />
                 <p className={styles.post__content}>{content}</p>
                 {photo_id && (
                     <div className={styles.post__image}>
                         <img
                             src={getFileUrl(photo_id)}
                             alt="Post attachment"
-                            width={600}
-                            height={400}
                             loading="lazy"
                             decoding="async"
                         />

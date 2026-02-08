@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { ArrowLeft, MessageCircle } from "lucide-react";
 import styles from "./Comments.module.scss";
 
 const Comments: React.FC = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <div className={styles.comments__container}>
             <div className={styles.comments__header}>
