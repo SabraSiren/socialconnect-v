@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import Post from "../Post/Post";
 import Loader from "../UI/Loader";
-import styles from "./Posts.module.css";
+import styles from "./Posts.module.scss";
 import {getPosts} from '../../store/slices/postsSlice'
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 

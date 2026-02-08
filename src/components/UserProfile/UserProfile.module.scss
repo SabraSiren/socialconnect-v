@@ -1,0 +1,175 @@
+
+.userProfile {
+    &__userInfo {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        position: relative;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    &__hiddenInput {
+        position: absolute;
+        width: 0;
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
+    &__avatarButton {
+        padding: 0;
+        border: none;
+        background: none;
+        cursor: pointer;
+        position: relative;
+        display: block;
+
+        &:disabled {
+            cursor: wait;
+        }
+
+        &:hover .userProfile__avatar {
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+    }
+
+    &__avatar {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        overflow: hidden;
+        background: var(--background);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        transition: box-shadow 0.2s ease;
+    }
+
+    &__avatarImage {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__avatarOverlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        color: var(--font-color-white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.875rem;
+    }
+
+    &__avatarError {
+        font-size: 0.875rem;
+        color: var(--error);
+        margin-bottom: 0.5rem;
+    }
+
+    &__emptyAvatar {
+        color: var(--avatar-empty-icon);
+        background: var(--avatar-empty-bg);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__userIcon {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    &__userDetails {
+        flex: 1;
+    }
+
+    &__userName {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0 0 1rem 0;
+        color: var(--font-color-dark);
+    }
+
+    &__userStats {
+        display: flex;
+        gap: 2rem;
+
+        @media (max-width: 768px) {
+            justify-content: center;
+        }
+
+        @media (max-width: 480px) {
+            gap: 1rem;
+        }
+    }
+
+    &__stat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__statNumber {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--font-color-dark);
+    }
+
+    &__statLabel {
+        font-size: 0.875rem;
+        color: var(--font-color-ligth);
+    }
+
+    &__logoutButton {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: transparent;
+        border: 1px solid var(--border);
+        border-radius: 0.375rem;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+        color: var(--font-color-ligth);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &:hover {
+            color: var(--destructive);
+            border-color: var(--destructive);
+        }
+
+        @media (max-width: 768px) {
+            position: static;
+            margin-top: 1rem;
+            align-self: center;
+            width: auto;
+            min-width: 120px;
+        }
+
+        @media (max-width: 480px) {
+            width: 100%;
+            max-width: 200px;
+            justify-content: center;
+        }
+    }
+
+    &__logoutIcon {
+        width: 1rem;
+        height: 1rem;
+    }
+}

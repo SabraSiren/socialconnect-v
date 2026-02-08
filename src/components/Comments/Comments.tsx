@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { ArrowLeft, MessageCircle } from "lucide-react";
-import styles from "./Comments.module.css";
+import styles from "./Comments.module.scss";
 
 const Comments: React.FC = () => {
     return (

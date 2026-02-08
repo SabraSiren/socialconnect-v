@@ -1,4 +1,4 @@
-import styles from './ExchangeRate.module.css';
+import styles from './ExchangeRate.module.scss';
 import {DollarSign} from 'lucide-react';
 import {useWebSocket} from "../../API/useWebSocket";
 

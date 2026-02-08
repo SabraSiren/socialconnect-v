@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import type { ChangeEvent, SubmitEventHandler } from "react";
-import styles from "./PostForm.module.css";
-import commonStyles from "../../App.module.css";
+import styles from "./PostForm.module.scss";
+import commonStyles from "../../App.module.scss";
 import { createPost } from "../../store/slices/postsSlice";
 import { useAppDispatch } from "../../store/hooks";
 import { ImagePlus } from "lucide-react";

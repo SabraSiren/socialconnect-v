@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Heart, MessageCircle, Trash2 } from "lucide-react";
-import styles from "./Post.module.css";
-import commonStyles from "../../App.module.css";
+import styles from "./Post.module.scss";
+import commonStyles from "../../App.module.scss";
 import { deletePost, likePost } from "../../store/slices/postsSlice";
 import type { Post as PostType } from "../../types";
 import { useAppDispatch } from "../../store/hooks";

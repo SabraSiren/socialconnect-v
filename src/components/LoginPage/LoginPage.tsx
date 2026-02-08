@@ -1,5 +1,5 @@
-import styles from "./LoginPage.module.css";
-import commonStyles from "../../App.module.css";
+import styles from "./LoginPage.module.scss";
+import commonStyles from "../../App.module.scss";
 import type { ChangeEvent, SubmitEventHandler } from "react";
 import { useEffect, useState } from "react";
 import {useNavigate} from "react-router-dom";

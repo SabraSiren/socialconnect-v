@@ -1,0 +1,52 @@
+/* Блок loader */
+.loader {
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        gap: 1rem;
+    }
+
+    &__spinner {
+        border: 3px solid var(--border);
+        border-top: 3px solid var(--primary);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+
+        &--small {
+            width: 20px;
+            height: 20px;
+            border-width: 2px;
+        }
+
+        &--medium {
+            width: 40px;
+            height: 40px;
+            border-width: 3px;
+        }
+
+        &--large {
+            width: 60px;
+            height: 60px;
+            border-width: 4px;
+        }
+    }
+
+    &__text {
+        color: var(--font-color-ligth);
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin: 0;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
