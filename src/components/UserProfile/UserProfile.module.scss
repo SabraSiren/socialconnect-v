@@ -13,15 +13,6 @@
         }
     }
 
-    &__hiddenInput {
-        position: absolute;
-        width: 0;
-        height: 0;
-        opacity: 0;
-        overflow: hidden;
-        pointer-events: none;
-    }
-
     &__avatarButton {
         padding: 0;
         border: none;
@@ -49,7 +40,7 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        transition: box-shadow 0.2s ease;
+        transition: box-shadow var(--transition-default);
     }
 
     &__avatarImage {
@@ -132,44 +123,4 @@
         color: var(--font-color-ligth);
     }
 
-    &__logoutButton {
-        position: absolute;
-        top: 0;
-        right: 0;
-        background: transparent;
-        border: 1px solid var(--border);
-        border-radius: 0.375rem;
-        padding: 0.5rem 0.75rem;
-        font-size: 0.875rem;
-        color: var(--font-color-ligth);
-        cursor: pointer;
-        transition: all 0.2s ease;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-
-        &:hover {
-            color: var(--destructive);
-            border-color: var(--destructive);
-        }
-
-        @media (max-width: 768px) {
-            position: static;
-            margin-top: 1rem;
-            align-self: center;
-            width: auto;
-            min-width: 120px;
-        }
-
-        @media (max-width: 480px) {
-            width: 100%;
-            max-width: 200px;
-            justify-content: center;
-        }
-    }
-
-    &__logoutIcon {
-        width: 1rem;
-        height: 1rem;
-    }
 }

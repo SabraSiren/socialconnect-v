@@ -1,9 +1,13 @@
 import styles from './ExchangeRate.module.scss';
-import {DollarSign} from 'lucide-react';
-import {useWebSocket} from "../../API/useWebSocket";
+import { DollarSign } from 'lucide-react';
+import { useWebSocketContext } from "../../API/WebSocketContext";
 
-const ExchangeRate: React.FC = () => {
-    const {rate, isConnected, error} = useWebSocket();
+interface ExchangeRateProps {
+    embedded?: boolean;
+}
+
+const ExchangeRate: React.FC<ExchangeRateProps> = ({ embedded }) => {
+    const { rate, isConnected, error } = useWebSocketContext();
 
     // Форматируем курс
     const formatRate = (value: number | null): string => {
@@ -25,7 +29,7 @@ const ExchangeRate: React.FC = () => {
     const statusInfo = getStatusInfo();
 
     return (
-        <div className={styles.exchangeRate__container}>
+        <div className={`${styles.exchangeRate__container} ${embedded ? styles.exchangeRate__containerEmbedded : ""}`}>
             <div className={styles.exchangeRate__card}>
                 <div className={styles.exchangeRate__header}>
                     <div className={styles.exchangeRate__titleWrapper}>

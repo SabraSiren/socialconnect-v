@@ -1,17 +1,15 @@
 import React, { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { User, LogOut } from "lucide-react";
+import { User } from "lucide-react";
 import styles from "./UserProfile.module.scss";
 import commonStyles from "../../App.module.scss";
-import { logout, updateUser } from "../../store/slices/authSlice";
-import ExchangeRate from "../ExchangeRate/ExchangeRate";
+import { updateUser } from "../../store/slices/authSlice";
+import OptionMenu from "../OptionMenu/OptionMenu";
 import FileService from "../../API/FileService";
 import AuthService from "../../API/AuthService";
 
 const UserProfile: React.FC = () => {
     const dispatch = useAppDispatch();
-    const navigate = useNavigate();
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [avatarError, setAvatarError] = useState<string | null>(null);
     const [avatarLoading, setAvatarLoading] = useState(false);
@@ -20,14 +18,7 @@ const UserProfile: React.FC = () => {
     const postsCount = useAppSelector((state) => state.posts.items.length);
     const { uploadFile, getFileUrl } = FileService();
 
-    const handleLogout = async (): Promise<void> => {
-        try {
-            await dispatch(logout()).unwrap();
-            navigate("/login");
-        } catch (err) {
-            console.error("Ошибка при выходе:", err);
-        }
-    };
+    
 
     const handleAvatarClick = () => {
         setAvatarError(null);
@@ -68,7 +59,7 @@ const UserProfile: React.FC = () => {
                         type="file"
                         accept="image/jpeg,image/png,image/jpg"
                         onChange={handleAvatarChange}
-                        className={styles.userProfile__hiddenInput}
+                        className="visuallyHidden"
                         aria-hidden
                     />
                     <button
@@ -98,6 +89,7 @@ const UserProfile: React.FC = () => {
                         </div>
                     </button>
                     <div className={styles.userProfile__userDetails}>
+                        <OptionMenu />
                         <h1 className={styles.userProfile__userName}>{user?.full_name}</h1>
                         {avatarError && <div className={styles.userProfile__avatarError}>{avatarError}</div>}
                         <div className={styles.userProfile__userStats}>
@@ -114,11 +106,6 @@ const UserProfile: React.FC = () => {
                                 <span className={styles.userProfile__statLabel}>Following</span>
                             </div>
                         </div>
-                        <button className={styles.userProfile__logoutButton} onClick={handleLogout}>
-                            <LogOut className={styles.userProfile__logoutIcon} />
-                            Logout
-                        </button>
-                        <ExchangeRate />
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { ArrowLeft, MessageCircle } from "lucide-react";
 import styles from "./Comments.module.scss";
+import commonStyles from "../App.module.scss";
 
 const Comments: React.FC = () => {
     useEffect(() => {
@@ -9,7 +10,7 @@ const Comments: React.FC = () => {
     }, []);
 
     return (
-        <div className={styles.comments__container}>
+        <div className={commonStyles.app__container}>
             <div className={styles.comments__header}>
                 <div className={styles.comments__headerTop}>
                     <Link to="/profile" className={styles.comments__backButton}>

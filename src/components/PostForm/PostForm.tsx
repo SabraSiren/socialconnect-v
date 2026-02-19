@@ -109,7 +109,7 @@ const PostForm: React.FC = () => {
                         type="file"
                         accept="image/jpeg,image/png,image/jpg"
                         onChange={handleFileChange}
-                        className={styles.postForm__hiddenInput}
+                        className="visuallyHidden"
                         aria-hidden
                     />
                     <button
