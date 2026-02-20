@@ -134,7 +134,7 @@ const AuthService = (() => {
         }
     }
 
-    /** Смена аватара: PATCH /auth/me/avatar, тело { avatar_id }. GET /auth/me возвращает user с avatar_id. */
+    // Смена аватара.
     async function updateProfile(payload: { avatar_id?: string | null }): Promise<User | null> {
         try {
             const res = await API.patch<User | { user: User }>('/auth/me/avatar', payload);

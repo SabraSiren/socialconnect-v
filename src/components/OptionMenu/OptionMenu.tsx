@@ -1,16 +1,31 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Menu } from "lucide-react";
 import styles from "./OptionMenu.module.scss";
-import { useAppDispatch } from "../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { useNavigate } from "react-router-dom";
-import { logout } from "../../store/slices/authSlice";
+import { logout, updateUser } from "../../store/slices/authSlice";
+import AuthService from "../../API/AuthService";
 import ExchangeRate from "../ExchangeRate/ExchangeRate";
 
 const OptionMenu: React.FC = () => {
     const dispatch = useAppDispatch();
+    const user = useAppSelector((state) => state.auth.user);
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
+
+    const handleDeleteAvatar = async (): Promise<void> => {
+        try {
+            const updated = await AuthService.updateProfile({ avatar_id: null });
+            if (updated) {
+                dispatch(updateUser(updated));
+            } else {
+                dispatch(updateUser({ avatar_id: null }));
+            }
+        } catch (err) {
+            console.error("Ошибка при удалении аватара:", err);
+        }
+    };
 
     const handleLogout = async (): Promise<void> => {
         try {
@@ -50,9 +65,18 @@ const OptionMenu: React.FC = () => {
             </button>
             {isOpen && (
                 <div className={styles.optionMenu__dropdown}>
+                    {user?.avatar_id && (
+                        <button
+                            type="button"
+                            className={styles.optionMenu__menuItem}
+                            onClick={handleDeleteAvatar}
+                        >
+                            Delete photo
+                        </button>
+                    )}
                     <button
                         type="button"
-                        className={styles.optionMenu__logout}
+                        className={styles.optionMenu__menuItem}
                         onClick={handleLogout}
                     >
                         Logout

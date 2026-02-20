@@ -37,14 +37,14 @@
         z-index: 10;
     }
 
-    &__logout {
+    &__menuItem {
         background: none;
         border: none;
         padding: 0.5rem 1rem;
         font-size: 0.875rem;
         color: var(--font-color-ligth);
         cursor: pointer;
-        text-align: center;
+        text-align: left;
         transition: color var(--transition-default);
 
         &:hover {

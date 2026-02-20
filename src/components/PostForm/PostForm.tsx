@@ -4,7 +4,7 @@ import styles from "./PostForm.module.scss";
 import commonStyles from "../../App.module.scss";
 import { createPost } from "../../store/slices/postsSlice";
 import { useAppDispatch } from "../../store/hooks";
-import { ImagePlus } from "lucide-react";
+import { ImagePlus, X } from "lucide-react";
 import FileService from "../../API/FileService";
 
 const PostForm: React.FC = () => {
@@ -72,6 +72,15 @@ const PostForm: React.FC = () => {
         fileInputRef.current?.click();
     };
 
+    const handleRemoveImage = () => {
+        setFileUrl(null);
+        setFileId(null);
+        setFileError(null);
+        if (fileInputRef.current) {
+            fileInputRef.current.value = "";
+        }
+    };
+
     return (
         <div className={commonStyles.app__cardContent}>
             <form onSubmit={addNewPost} name="postform">
@@ -98,6 +107,15 @@ const PostForm: React.FC = () => {
                             height={80}
                             decoding="async"
                         />
+                        <button
+                            type="button"
+                            className={styles.postForm__removeImageButton}
+                            onClick={handleRemoveImage}
+                            title="Remove image"
+                            aria-label="Remove image"
+                        >
+                            <X size={14} strokeWidth={2.5} />
+                        </button>
                     </div>
                 )}
                 {fileError && (
