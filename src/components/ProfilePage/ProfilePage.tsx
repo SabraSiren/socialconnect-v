@@ -1,22 +1,24 @@
 import React from "react";
-import styles from "../../App.module.css";
+import styles from "../../App.module.scss";
 import UserProfile from "../UserProfile/UserProfile";
 import PostForm from "../PostForm/PostForm";
 import Posts from "../Posts/Posts";
+import { WebSocketProvider } from "../../API/WebSocketContext";
 
 const ProfilePage: React.FC = () => {
-
     return (
-        <div className={styles.container}>
-            <div className={styles.mainContent}>
-                <div className={styles.profileCard}>
+        <WebSocketProvider>
+        <div className={styles.app__container}>
+            <div className={styles.app__mainContent}>
+                <div className={styles.app__profileCard}>
                     <UserProfile/>
-                    <div className={styles.divider}></div>
+                    <div className={styles.app__divider}></div>
                     <PostForm/>
                 </div>
                 <Posts/>
             </div>
         </div>
+        </WebSocketProvider>
     );
 };
 

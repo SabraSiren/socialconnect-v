@@ -1,10 +1,10 @@
 import React, { useState, useRef } from "react";
 import type { ChangeEvent, SubmitEventHandler } from "react";
-import styles from "./PostForm.module.css";
-import commonStyles from "../../App.module.css";
+import styles from "./PostForm.module.scss";
+import commonStyles from "../../App.module.scss";
 import { createPost } from "../../store/slices/postsSlice";
 import { useAppDispatch } from "../../store/hooks";
-import { ImagePlus } from "lucide-react";
+import { ImagePlus, X } from "lucide-react";
 import FileService from "../../API/FileService";
 
 const PostForm: React.FC = () => {
@@ -72,43 +72,67 @@ const PostForm: React.FC = () => {
         fileInputRef.current?.click();
     };
 
+    const handleRemoveImage = () => {
+        setFileUrl(null);
+        setFileId(null);
+        setFileError(null);
+        if (fileInputRef.current) {
+            fileInputRef.current.value = "";
+        }
+    };
+
     return (
-        <div className={commonStyles.cardContent}>
+        <div className={commonStyles.app__cardContent}>
             <form onSubmit={addNewPost} name="postform">
                 {error && (
-                    <div className={styles.errorMessage}>
+                    <div className={styles.postForm__errorMessage}>
                         {error}
                     </div>
                 )}
-                <div className={styles.postInputContainer}>
+                <div className={styles.postForm__inputContainer}>
                     <textarea
                         placeholder="What's on your mind?"
                         value={content}
                         onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setContent(e.target.value)}
-                        className={styles.postInput}
+                        className={styles.postForm__input}
                         rows={3}
                     />
                 </div>
                 {fileUrl && (
-                    <div className={styles.filePreview}>
-                        <img src={fileUrl} alt="Uploaded" />
+                    <div className={styles.postForm__filePreview}>
+                        <img
+                            src={fileUrl}
+                            alt="Uploaded"
+                            width={120}
+                            height={80}
+                            decoding="async"
+                        />
+                        <button
+                            type="button"
+                            className={styles.postForm__removeImageButton}
+                            onClick={handleRemoveImage}
+                            title="Remove image"
+                            aria-label="Remove image"
+                        >
+                            <X size={14} strokeWidth={2.5} />
+                        </button>
                     </div>
                 )}
                 {fileError && (
-                    <div className={styles.errorMessage}>{fileError}</div>
+                    <div className={styles.postForm__errorMessage}>{fileError}</div>
                 )}
-                <div className={styles.postActions}>
+                <div className={styles.postForm__actions}>
                     <input
                         ref={fileInputRef}
                         type="file"
                         accept="image/jpeg,image/png,image/jpg"
                         onChange={handleFileChange}
-                        className={styles.hiddenInput}
+                        className="visuallyHidden"
                         aria-hidden
                     />
                     <button
                         type="button"
-                        className={styles.attachButton}
+                        className={styles.postForm__attachButton}
                         onClick={handleAttachImageClick}
                         title="Add image"
                         aria-label="Add image"
@@ -117,7 +141,7 @@ const PostForm: React.FC = () => {
                     </button>
                     <button
                         type="submit"
-                        className={styles.postButton}
+                        className={styles.postForm__submitButton}
                         disabled={loading || isEmpty}
                     >
                         {loading ? "Posting..." : "Post"}

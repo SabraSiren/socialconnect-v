@@ -59,7 +59,8 @@ export const useWebSocket = (url?: string): UseWebSocketReturn => {
     const subscribersRef = useRef<Set<SubscriberCallback>>(new Set()); // хранит Set функций-подписчиков
     const reconnectAttemptsRef = useRef<number>(0); 
     const isManualDisconnectRef = useRef<boolean>(false); 
-    const reconnectTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null); 
+    const reconnectTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const errorTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const maxReconnectAttempts = 5;
     const reconnectDelay = 1000;
@@ -94,11 +95,15 @@ export const useWebSocket = (url?: string): UseWebSocketReturn => {
             socketRef.current = new WebSocket(effectiveUrl);
             
             socketRef.current.onopen = () => {
+                if (errorTimeoutRef.current) {
+                    clearTimeout(errorTimeoutRef.current);
+                    errorTimeoutRef.current = null;
+                }
                 console.log('WebSocket connected');
-                setIsConnected(true);             
-                reconnectAttemptsRef.current = 0; 
-                setError(null);                  
-                notifySubscribers('connected', null); // уведомляем подписчиков
+                setIsConnected(true);
+                reconnectAttemptsRef.current = 0;
+                setError(null);
+                notifySubscribers('connected', null);
             };
 
             socketRef.current.onmessage = (event: MessageEvent) => {
@@ -153,8 +158,12 @@ export const useWebSocket = (url?: string): UseWebSocketReturn => {
 
             socketRef.current.onerror = (wsError: Event) => {
                 console.error('WebSocket error:', wsError);
-                setError('Connection error');
                 notifySubscribers('error', wsError);
+                if (errorTimeoutRef.current) return;
+                errorTimeoutRef.current = setTimeout(() => {
+                    errorTimeoutRef.current = null;
+                    setError('Connection error');
+                }, 500);
             };
 
         } catch (error) {
@@ -167,7 +176,10 @@ export const useWebSocket = (url?: string): UseWebSocketReturn => {
 
     const disconnect = useCallback(() => {
         isManualDisconnectRef.current = true;
-        
+        if (errorTimeoutRef.current) {
+            clearTimeout(errorTimeoutRef.current);
+            errorTimeoutRef.current = null;
+        }
         if (reconnectTimeoutRef.current) {
             clearTimeout(reconnectTimeoutRef.current);
             reconnectTimeoutRef.current = null;

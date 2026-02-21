@@ -1,0 +1,121 @@
+
+.postForm {
+    &__inputContainer {
+        display: flex;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    &__input {
+        flex: 1;
+        resize: none;
+        min-height: 80px;
+        padding: 0.75rem;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        background: var(--background);
+        color: var(--font-color-dark);
+        outline: none;
+        transition: border-color var(--transition-default);
+
+        &:focus {
+            border-color: var(--primary-light);
+            box-shadow: var(--focus-ring);
+        }
+
+        &::placeholder {
+            color: var(--font-color-placeholder);
+        }
+    }
+
+    &__filePreview {
+        margin-bottom: 0.75rem;
+        display: inline-block;
+        position: relative;
+        overflow: visible;
+        border-radius: var(--radius-md);
+
+        img {
+            display: block;
+            max-width: 120px;
+            max-height: 80px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+        }
+    }
+
+    &__removeImageButton {
+        position: absolute;
+        top: 0.25rem;
+        right: 0.25rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        padding: 0;
+        border: none;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color var(--transition-default);
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.5rem;
+    }
+
+    &__attachButton {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        background: transparent;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        color: var(--font-color-placeholder);
+        cursor: pointer;
+        transition: border-color var(--transition-default), color var(--transition-default);
+
+        &:hover {
+            border-color: var(--primary-light);
+            color: var(--primary);
+        }
+    }
+
+    &__submitButton {
+        background: var(--primary);
+        color: var(--font-color-white);
+        border: none;
+        border-radius: var(--radius-md);
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: background-color var(--transition-default);
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__errorMessage {
+        background-color: var(--background);
+        color: var(--error);
+        padding: 0.75rem;
+        border-radius: var(--radius-md);
+        margin-bottom: 1rem;
+        border: 1px solid var(--border);
+        text-align: center;
+        font-size: 0.875rem;
+    }
+}

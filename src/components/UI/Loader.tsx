@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Loader.module.css";
+import styles from "./Loader.module.scss";
 
 interface LoaderProps {
     size?: "small" | "medium" | "large";
@@ -8,9 +8,9 @@ interface LoaderProps {
 
 const Loader: React.FC<LoaderProps> = ({size = "medium", text = "Loading..."}) => {
     return (
-        <div className={styles.loaderContainer}>
-            <div className={`${styles.spinner} ${styles[size]}`}></div>
-            {text && <p className={styles.loaderText}>{text}</p>}
+        <div className={styles.loader__container}>
+            <div className={`${styles.loader__spinner} ${styles[`loader__spinner--${size}`]}`}></div>
+            {text && <p className={styles.loader__text}>{text}</p>}
         </div>
     );
 };

@@ -1,0 +1,55 @@
+/* Блок app: общие стили контейнеров */
+.app {
+    &__container {
+        min-height: 100vh;
+        background-color: var(--background);
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 1rem;
+
+        @media (max-width: 768px) {
+            padding: 0.5rem;
+        }
+    }
+
+    &__pageContainer {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    &__mainContent {
+        width: 100%;
+    }
+
+    /* Общие стили карточек */
+    &__cardContent {
+        padding: 1.5rem;
+
+        &--compact {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }
+    }
+
+    &__profileCard {
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--primary-dark);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-card);
+    }
+
+    &__divider {
+        height: 1px;
+        margin: 0 1.5rem;
+    }
+
+    /* Резерв места под загрузчик — уменьшает CLS при смене на контент */
+    &__loaderWrapper {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
