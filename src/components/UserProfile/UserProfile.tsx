@@ -79,6 +79,8 @@ const UserProfile: React.FC = () => {
                                     width={80}
                                     height={80}
                                     decoding="async"
+                                    fetchPriority="high"
+                                    loading="eager"
                                 />
                             ) : (
                                 <div className={styles.userProfile__emptyAvatar}>
