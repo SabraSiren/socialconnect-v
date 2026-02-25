@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { ArrowLeft, MessageCircle } from "lucide-react";
 import styles from "./Comments.module.scss";
-import commonStyles from "../App.module.scss";
+import commonStyles from "../../App.module.scss";
 
 const Comments: React.FC = () => {
     useEffect(() => {
