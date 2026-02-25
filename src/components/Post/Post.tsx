@@ -11,7 +11,6 @@ import FileService from "../../API/FileService";
 
 interface PostProps {
     post: PostType;
-    isFirst?: boolean;
 }
 
 const Post: React.FC<PostProps> = ({ post }) => {
@@ -25,7 +24,6 @@ const Post: React.FC<PostProps> = ({ post }) => {
         timestamp,
         liked_by_user,
         photo_id,
-        isFirst,
     } = post;
 
     const handleDelete = (e: React.MouseEvent<HTMLButtonElement>): void => {
@@ -70,8 +68,7 @@ const Post: React.FC<PostProps> = ({ post }) => {
                             src={getFileUrl(photo_id)}
                             alt="Post attachment"
                             decoding="async"
-                            loading={isFirst ? "eager" : "lazy"}
-                            fetchPriority={isFirst ? "high" : "auto"}
+                            loading= "lazy"
                             width="600"
                             height="400"
                         />
