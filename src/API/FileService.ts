@@ -4,7 +4,7 @@ import API from "./api"
 
 const FILE_RULES = {
     maxSize: 512 * 1024, // 512KB
-    allowedFormats: ['image/jpeg', 'image/png', 'image/jpg', 'image/webp'],
+    allowedFormats: ['image/jpeg', 'image/png', 'image/jpg'],
 };
 
 interface UploadFileResponse {
@@ -53,13 +53,13 @@ export async function compressImage(file: File): Promise<File> {
     ctx.drawImage(bitmap, 0, 0);
 
     const blob = await new Promise<Blob | null>((resolve) =>
-        canvas.toBlob(resolve, "image/webp", 0.7)
+        canvas.toBlob(resolve, "image/jpeg", 0.7)
     );
 
     if (!blob) throw new Error("Compression failed");
 
     return new File([blob], file.name.replace(/\.\w+$/, ".webp"), {
-        type: "image/webp"
+        type: "image/jpeg"
     });
 }
 
